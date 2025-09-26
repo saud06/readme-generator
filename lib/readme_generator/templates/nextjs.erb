@@ -1,6 +1,16 @@
 # <%= project_name %>
 
-A Next.js application created with README Generator.
+<%= @project_info[:description] || "A Next.js application created with README Generator." %>
+
+<% if @project_info[:version] %>**Version:** <%= @project_info[:version] %><% end %>
+<% if @project_info[:author] && @project_info[:author] != 'Unknown' %>**Author:** <%= @project_info[:author] %><% end %>
+
+<% if @project_info[:dependencies] && !@project_info[:dependencies].empty? %>
+## Technologies Used
+
+<% @project_info[:dependencies].each do |framework| %>- <%= framework %>
+<% end %>
+<% end %>
 
 ## Installation
 

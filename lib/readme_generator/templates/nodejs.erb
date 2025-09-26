@@ -1,6 +1,16 @@
 # <%= project_name %>
 
-A Node.js project created with README Generator.
+<%= @project_info[:description] || "A Node.js project created with README Generator." %>
+
+<% if @project_info[:version] %>**Version:** <%= @project_info[:version] %><% end %>
+<% if @project_info[:author] && @project_info[:author] != 'Unknown' %>**Author:** <%= @project_info[:author] %><% end %>
+
+<% if @project_info[:dependencies] && !@project_info[:dependencies].empty? %>
+## Technologies Used
+
+<% @project_info[:dependencies].each do |framework| %>- <%= framework %>
+<% end %>
+<% end %>
 
 ## Installation
 
@@ -16,12 +26,22 @@ const <%= project_name.gsub('-', '') %> = require('<%= project_name %>');
 // Add usage examples here
 ```
 
+<% if @project_info[:scripts] && !@project_info[:scripts].empty? %>
+## Available Scripts
+
+<% @project_info[:scripts].each do |script| %>```bash
+npm run <%= script[:name] %>    # <%= script[:command] %>
+```
+
+<% end %>
+<% else %>
 ## Scripts
 
 ```bash
 npm start    # Start the application
 npm test     # Run tests
 ```
+<% end %>
 
 ## Contributing
 

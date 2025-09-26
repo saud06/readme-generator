@@ -1,6 +1,16 @@
 # <%= project_name %>
 
-A React application created with README Generator.
+<%= @project_info[:description] || "A React application created with README Generator." %>
+
+<% if @project_info[:version] %>**Version:** <%= @project_info[:version] %><% end %>
+<% if @project_info[:author] && @project_info[:author] != 'Unknown' %>**Author:** <%= @project_info[:author] %><% end %>
+
+<% if @project_info[:dependencies] && !@project_info[:dependencies].empty? %>
+## Technologies Used
+
+<% @project_info[:dependencies].each do |framework| %>- <%= framework %>
+<% end %>
+<% end %>
 
 ## Installation
 
@@ -17,6 +27,15 @@ npm run build    # Build for production
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+<% if @project_info[:scripts] && !@project_info[:scripts].empty? %>
+## Available Scripts
+
+<% @project_info[:scripts].each do |script| %>```bash
+npm run <%= script[:name] %>    # <%= script[:command] %>
+```
+
+<% end %>
+<% else %>
 ## Available Scripts
 
 ```bash
@@ -25,6 +44,7 @@ npm test         # Launches the test runner
 npm run build    # Builds the app for production
 npm run eject    # Ejects from Create React App
 ```
+<% end %>
 
 ## Contributing
 

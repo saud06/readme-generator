@@ -8,7 +8,8 @@ module ReadmeGenerator
     end
 
     def build
-      template_name = @options[:template] || 'basic'
+      # Smart template selection: Choose template based on project type
+      template_name = @options[:template] || @project_info[:type] || 'basic'
       template_path = File.join(templates_dir, "#{template_name}.erb")
       
       # Fall back to basic template if specified template doesn't exist

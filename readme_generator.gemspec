@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Saud M.']
   spec.email = ['saud.mn6@gmail.com']
 
-  spec.summary = 'A simple CLI tool to generate README.md files'
+  spec.summary = 'An intelligent CLI tool to generate README.md files'
   spec.description = 'Generate README files for your projects with templates'
   spec.homepage = 'https://github.com/saud06/readme-generator'
   spec.license = 'MIT'
