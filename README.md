@@ -28,7 +28,7 @@ gem build readme_generator.gemspec
 
 ### macOS
 ```bash
-gem install ./readme_generator-1.0.0.gem
+gem install --user-install ./readme_generator-1.0.0.gem
 ```
 
 ### Linux
