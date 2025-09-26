@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/readme_generator'
+
+begin
+  ReadmeGenerator::CLI.start(ARGV)
+rescue Interrupt
+  puts "\n\nExiting..."
+  exit 1
+rescue StandardError => e
+  puts "Error: #{e.message}"
+  exit 1
+end
